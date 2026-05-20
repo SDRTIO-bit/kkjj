@@ -1,0 +1,5 @@
+{
+  "skills": ["./skills/rp/SKILL.md"],
+  "enableSkillCommands": true,
+  "sessionDir": ".pi/sessions"
+}
