@@ -16,7 +16,17 @@
 
 ## 📖 概述
 
-这是一个构建在 [pi 编码代理](https://github.com/earendil-works/pi-coding-agent) 之上的角色扮演框架。它通过一套可复用的工具链和前端界面，将 AI 聊天代理转变为沉浸式的角色扮演游戏引擎。
+这是一个构建在 **pi 编码代理** 之上的角色扮演框架。它通过一套可复用的工具链和前端界面，将 AI 聊天代理转变为沉浸式的角色扮演游戏引擎。
+
+### 技术栈
+
+| 组件 | 说明 |
+|------|------|
+| [**pi**](https://github.com/earendil-works/pi-coding-agent) | 编码代理 CLI，提供扩展机制和 TUI 界面 |
+| [**tau**](https://github.com/earendil-works/pi-coding-agent) | pi 内置的 tau-mirror 消息镜像机制，Web 前端基于此构建 |
+| **rp-engine.ts** | pi 扩展，提供状态管理、世界书、周期事件、Web 服务 |
+| **rp-web/** | 纯前端界面（HTML + JS + CSS），通过 WebSocket 与引擎通信 |
+| **LLM** | 后端大语言模型（由 pi 调用），输出 XML 标签格式的叙事内容 |
 
 ### 核心特色
 
@@ -146,6 +156,8 @@ pi-rp-framework/
 
 ### 前置条件
 
+需要先安装 [pi 编码代理](https://github.com/earendil-works/pi-coding-agent)（内置 tau-mirror）：
+
 ```bash
 pi --version    # ≥ v0.75
 node --version  # ≥ 18
@@ -158,13 +170,13 @@ node --version  # ≥ 18
 git clone https://github.com/your-username/pi-rp-framework.git
 cd pi-rp-framework
 
-# 2. 安装 WebSocket 依赖
+# 2. 安装 WebSocket 依赖（rp-engine 需要）
 npm install ws
 
-# 3. 初始化
+# 3. 初始化世界书和状态
 node setup.mjs
 
-# 4. 启动
+# 4. 启动 pi（自动加载 rp-engine 扩展并启动 Web 服务）
 pi
 ```
 
