@@ -1,0 +1,55 @@
+# ============================================================
+# 乐园回响 · Git 忽略规则
+# ============================================================
+
+# --- 运行时生成的状态文件 ---
+.pi/state.json
+.pi/state_history.jsonl
+
+# --- 对话历史（含隐私数据） ---
+.pi/sessions/
+
+# --- 角色卡（第三方内容，用户自行管理） ---
+.pi/cards/
+
+# --- 世界书（运行时从 worldbook_clean/ 生成） ---
+.pi/worldbook/
+
+# --- 依赖 ---
+node_modules/
+.pi/npm/node_modules/
+
+# --- 用户本地配置（不上传，请参考 .rpconfig.example.json） ---
+.rpconfig.json
+
+# --- 角色卡（通常为第三方内容，由用户自行管理） ---
+characters/*.png
+characters/*.json
+
+# --- 环境变量 ---
+.env
+.env.local
+
+# --- 日志 ---
+*.log
+
+# --- 系统文件 ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- 临时文件 ---
+tmp/
+temp/
+nul
+tau-mirror-tmp/
+
+# --- 归档 ---
+*.tgz
