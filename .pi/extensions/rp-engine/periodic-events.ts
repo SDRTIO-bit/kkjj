@@ -5,7 +5,6 @@
  */
 
 import type { WorldState, CharacterState, HistoryRecord } from "./types";
-import { CORE_CHARS } from "./types";
 import { clamp } from "./utils";
 
 /**
@@ -23,7 +22,9 @@ export function processPeriodicEvents(
   const currentDate = new Date(world.当前日期);
   if (isNaN(currentDate.getTime())) return events;
 
-  for (const name of CORE_CHARS) {
+  // 动态获取所有角色（排除非角色键）
+  const charNames = Object.keys(state).filter(k => k !== '世界' && k !== '{{user}}' && k !== '_meta' && k !== 'global' && k !== 'cardStates');
+  for (const name of charNames) {
     const char = state[name] as CharacterState;
     if (!char) continue;
 

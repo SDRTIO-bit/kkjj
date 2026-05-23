@@ -34,7 +34,7 @@ export function createToolRegistry(
     label: "读取状态",
     description: "读取指定角色的当前状态数据。char 为角色名，fields 可选（指定要读取的字段路径）。",
     parameters: Type.Object({
-      char: Type.String({ description: "角色名，如 夏小雀、{{user}}、世界" }),
+      char: Type.String({ description: "角色名，如 {{user}}、世界 或角色姓名" }),
       fields: Type.Optional(
         Type.Array(Type.String(), { description: "要读取的字段路径数组，如 ['归属值','生理状态.怀孕状态']" })
       ),

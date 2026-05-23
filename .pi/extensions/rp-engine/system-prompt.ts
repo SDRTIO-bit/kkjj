@@ -176,9 +176,9 @@ export function buildSystemPrompt(
       prompt += "（暂无角色状态）\n";
     }
   } else {
-    // 旧格式兼容：直接遍历顶层角色
-    const CORE_CHARS = ["夏小雀", "宁正棠", "江璃", "许知意", "林初夏", "凌晓青"];
-    for (const name of CORE_CHARS) {
+    // 旧格式兼容：直接遍历顶层角色（动态获取角色列表）
+    const charNames = Object.keys(state).filter(k => k !== '世界' && k !== '{{user}}' && k !== '_meta' && k !== 'global' && k !== 'cardStates');
+    for (const name of charNames) {
       const char = state[name] as CharacterState;
       if (!char) continue;
       const flower = char.花开蒂落?.触发状态 ? "🌸已花开" : "🌱未触发";
@@ -244,9 +244,9 @@ export function buildCompactSystemPrompt(
       }
     }
   } else {
-    // 旧格式兼容
-    const CORE_CHARS = ["夏小雀", "宁正棠", "江璃", "许知意", "林初夏", "凌晓青"];
-    for (const name of CORE_CHARS) {
+    // 旧格式兼容（动态获取角色列表）
+    const charNames = Object.keys(state).filter(k => k !== '世界' && k !== '{{user}}' && k !== '_meta' && k !== 'global' && k !== 'cardStates');
+    for (const name of charNames) {
       const char = state[name] as CharacterState;
       if (!char) continue;
       const flower = char.花开蒂落?.触发状态 ? "🌸" : "🌱";

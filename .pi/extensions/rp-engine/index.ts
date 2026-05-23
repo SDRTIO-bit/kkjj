@@ -9,7 +9,6 @@ import { join } from "node:path";
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
 import type { WorldState, CharacterState } from "./types";
-import { CORE_CHARS } from "./types";
 import { createStateStore } from "./state-store";
 
 function ensureDir(dir: string) { mkdirSync(dir, { recursive: true }); }

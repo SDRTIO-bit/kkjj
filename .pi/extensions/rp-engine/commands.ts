@@ -91,9 +91,8 @@ export function createCommandRegistry(
   /history <名>   - 查看角色变更历史
   /rp             - 显示本帮助
 
-追踪角色（6人）:
-  夏小雀  宁正棠  江璃
-  许知意  林初夏  凌晓青
+追踪角色:
+  （由激活的角色卡动态加载）
 
 状态文件:
   .pi/state.json            - 当前状态

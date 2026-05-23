@@ -6,7 +6,6 @@ import type { Theme } from "@earendil-works/pi-coding-agent";
 import { matchesKey, truncateToWidth } from "@earendil-works/pi-tui";
 import { existsSync, readFileSync } from "node:fs";
 import type { WorldState, CharacterState, HistoryRecord } from "./types";
-import { CORE_CHARS } from "./types";
 
 /**
  * 状态面板 - 显示所有角色状态概览
@@ -50,7 +49,9 @@ export class StatusPanel {
       lines.push("");
     }
 
-    for (const name of CORE_CHARS) {
+    // 动态获取所有角色
+    const charNames = Object.keys(state).filter(k => k !== '世界' && k !== '{{user}}' && k !== '_meta' && k !== 'global' && k !== 'cardStates');
+    for (const name of charNames) {
       const char = state[name] as CharacterState;
       if (!char) continue;
 
